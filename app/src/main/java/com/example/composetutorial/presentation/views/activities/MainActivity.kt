@@ -4,7 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -15,39 +22,55 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.composetutorial.presentation.views.composables.ExpandableCards
 import com.example.composetutorial.presentation.views.composables.Onboarding
 import com.example.composetutorial.presentation.theme.ComposeTutorialTheme
+import com.example.composetutorial.presentation.views.composables.AlignYourBodyRow
+import com.example.composetutorial.presentation.views.composables.BottomNavigationBar
+import com.example.composetutorial.presentation.views.screens.HomeScreen
+import com.example.composetutorial.presentation.views.screens.HomeScreenLandscape
 
 class MainActivity : ComponentActivity() {
+    @OptIn(
+        ExperimentalMaterial3Api::class,
+        ExperimentalMaterial3WindowSizeClassApi::class
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeTutorialTheme{
-                Surface(modifier = Modifier.fillMaxSize()){
-                    //MessageCard(Message("Android", "Jetpack Compose"))
-                    //Conversation(com.example.composetutorial.utils.SampleData.conversationSample)
-                    MyApp()
-                }
+                val windowSizeClass = calculateWindowSizeClass(this)
+                MainActivityContent(windowSizeClass)
             }
         }
     }
 }
 
 @Composable
-fun MyApp(modifier: Modifier = Modifier) {
-    //State hoisting
-    var shouldShowOnboarding by remember { mutableStateOf(true) }
-    Surface(modifier) {
-        if (shouldShowOnboarding) {
-            Onboarding(onContinueClicked = { shouldShowOnboarding = false })
-        } else {
-            ExpandableCards()
+fun MainActivityContent(windowSize: WindowSizeClass) {
+    when (windowSize.widthSizeClass) {
+        WindowWidthSizeClass.Compact -> {
+            HomeScreen()
+        }
+        WindowWidthSizeClass.Expanded -> {
+            HomeScreenLandscape()
         }
     }
 }
 
-@Preview
+@Preview(
+    showBackground = true
+)
 @Composable
-fun MyAppPreview() {
+fun HomeScreenPreview(){
     ComposeTutorialTheme {
-        MyApp(Modifier.fillMaxSize())
+        HomeScreen()
+    }
+}
+
+@Preview(
+    showBackground = true
+)
+@Composable
+fun HomeScreenLandscapePreview(){
+    ComposeTutorialTheme {
+        HomeScreenLandscape()
     }
 }
