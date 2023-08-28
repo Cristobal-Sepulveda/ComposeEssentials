@@ -8,3 +8,4 @@ data class WellnessTask(
     val label: String,
     var checked: MutableState<Boolean> = mutableStateOf(false)
 )
+

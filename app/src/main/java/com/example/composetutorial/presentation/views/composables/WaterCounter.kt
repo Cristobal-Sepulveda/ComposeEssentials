@@ -1,5 +1,7 @@
 package com.example.composetutorial.presentation.views.composables
 
+import android.graphics.Color
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -12,6 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.composetutorial.presentation.theme.ComposeTutorialTheme
+import com.example.composetutorial.utils.DarkLightPreviews
 
 
 /*
@@ -64,8 +69,19 @@ fun WaterStatelessCounter(
             Modifier.padding(top = 8.dp),
             enabled = count < 10
         ) {
-            Text("Add one")
+            Text("Add on")
         }
+    }
+}
+
+@DarkLightPreviews
+@Composable
+fun WaterStatelessCounterPreview() {
+    ComposeTutorialTheme {
+        WaterStatelessCounter(
+            count = 2,
+            onIncrement = { /*TODO*/ }
+        )
     }
 }
 
