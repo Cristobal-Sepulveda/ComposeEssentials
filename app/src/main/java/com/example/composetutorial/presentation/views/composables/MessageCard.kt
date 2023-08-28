@@ -28,7 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composetutorial.R
-import com.example.composetutorial.dataclasses.Message
+import com.example.composetutorial.domain.Message
 import com.example.composetutorial.presentation.theme.ComposeTutorialTheme
 
 

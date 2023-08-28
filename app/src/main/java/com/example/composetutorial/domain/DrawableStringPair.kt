@@ -1,4 +1,4 @@
-package com.example.composetutorial.dataclasses
+package com.example.composetutorial.domain
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

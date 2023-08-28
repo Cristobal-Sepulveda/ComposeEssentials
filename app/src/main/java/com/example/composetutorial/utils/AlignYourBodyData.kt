@@ -1,7 +1,7 @@
 package com.example.composetutorial.utils
 
 import com.example.composetutorial.R
-import com.example.composetutorial.dataclasses.DrawableStringPair
+import com.example.composetutorial.domain.DrawableStringPair
 
 val alignYourBodyData = listOf(
     R.drawable.ab1_inversions to R.string.ab1_inversions,

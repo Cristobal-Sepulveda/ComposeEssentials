@@ -1,6 +1,6 @@
 package com.example.composetutorial.utils
 
-import com.example.composetutorial.dataclasses.Message
+import com.example.composetutorial.domain.Message
 
 /**
  * com.example.composetutorial.utils.SampleData for Jetpack Compose Tutorial

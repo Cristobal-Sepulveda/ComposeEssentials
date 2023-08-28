@@ -1,3 +1,3 @@
-package com.example.composetutorial.dataclasses
+package com.example.composetutorial.domain
 
 data class Message(val author: String, val body: String )

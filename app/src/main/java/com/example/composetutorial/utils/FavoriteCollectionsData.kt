@@ -1,7 +1,7 @@
 package com.example.composetutorial.utils
 
 import com.example.composetutorial.R
-import com.example.composetutorial.dataclasses.DrawableStringPair
+import com.example.composetutorial.domain.DrawableStringPair
 
 val favoriteCollectionsData = listOf(
     R.drawable.fc1_short_mantras to R.string.fc1_short_mantras,
